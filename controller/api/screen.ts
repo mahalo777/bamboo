@@ -1,7 +1,7 @@
 import { Context } from 'koa';
 import { getFullScreenShot, uploadOSS } from '../../core/fullScreenShot';
 
-export interface ScreenShoot {
+export interface FullScreenShot {
   url: string;
   type?: string;
   format?: string;
@@ -15,7 +15,7 @@ export default {
       url: query?.url || '',
       type: query.type || 'jpg',
       format: query.format || 'a4',
-    } as ScreenShoot;
+    } as FullScreenShot;
 
     const { fileName, filePath } = await getFullScreenShot(params);
     const res = await uploadOSS(filePath || '', fileName || '');

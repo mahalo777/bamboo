@@ -5,12 +5,12 @@ import axios from "axios";
 import FormData from "form-data";
 import { getNonDuplicateId } from "../common/utils";
 import dayjs from "dayjs";
-import { ScreenShoot } from "../controller/api/screen";
+import { FullScreenShot } from "../controller/api/screen";
 
 // /private/var/vm
 const TEMP_PATH = process.env.NODE_ENV === 'development' ? path.dirname(path.dirname(__dirname)) : '/dev/shm';
 
-export const getFullScreenShot = async (params: ScreenShoot) => {
+export const getFullScreenShot = async (params: FullScreenShot) => {
   const { url, type, format } = params;
   const browser = await launch({
     headless: false,
