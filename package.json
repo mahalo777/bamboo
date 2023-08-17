@@ -6,7 +6,7 @@
   "main": "app.ts",
   "scripts": {
     "dev": "nodemon --exec 'ts-node' --files app.ts",
-    "start": "npm run dev",
+    "start": "cross-env NODE_ENV=development npm run dev",
     "lint": "eslint --ext .js,.ts .",
     "lint:fix": "eslint --fix --ext .ts,.js,.vue ."
   },
@@ -18,6 +18,7 @@
     "@types/koa-static": "^4.0.2",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
+    "cross-env": "^7.0.3",
     "eslint": "^7.31.0",
     "nodemon": "^2.0.15",
     "ts-node": "^10.7.0",
@@ -25,6 +26,7 @@
   },
   "dependencies": {
     "axios": "^1.4.0",
+    "dayjs": "^1.11.9",
     "ejs": "^3.1.6",
     "form-data": "^4.0.0",
     "koa": "^2.13.4",

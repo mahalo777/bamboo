@@ -7,6 +7,6 @@ const router = new Router();
 
 router.get('/user', userController.getUser);
 router.post('/signin', signController.postSignIn);
-router.get('/screen', screenController.getScreen);
+router.get('/fullScreenshot', screenController.getFullScreenShot);
 
 export default router;

@@ -1,9 +1,24 @@
 import { Context } from 'koa';
-import { screenshot } from '../../core/screenshot';
+import { getFullScreenShot, uploadOSS } from '../../core/ullScreenShot';
+
+export interface ScreenShoot {
+  url: string;
+  type?: string;
+  format?: string;
+}
+
 
 export default {
-  async getScreen(ctx: Context): Promise<void> {
-    const res = await screenshot();
+  async getFullScreenShot(ctx: Context): Promise<void> {
+    const query = ctx.request.query;
+    const params = {
+      url: query?.url || '',
+      type: query.type || 'jpg',
+      format: query.format || 'a4',
+    } as ScreenShoot;
+
+    const { fileName, filePath } = await getFullScreenShot(params);
+    const res = await uploadOSS(filePath || '', fileName || '');
     ctx.body = res;
   },
 };

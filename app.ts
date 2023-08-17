@@ -11,6 +11,11 @@ const app = new Koa();
 // 解析 request body:
 app.use(koaBody());
 
+app.use(async (ctx, next) => {
+  ctx.set("Access-Control-Allow-Origin", "*");
+  await next();
+})
+
 // 加载模板引擎
 app.use(koaViews(path.join(__dirname, './views'), {
   extension: 'ejs',
