@@ -1,5 +1,5 @@
 import { Context } from 'koa';
-import { getFullScreenShot, uploadOSS } from '../../core/ullScreenShot';
+import { getFullScreenShot, uploadOSS } from '../../core/fullScreenShot';
 
 export interface ScreenShoot {
   url: string;
