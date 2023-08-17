@@ -1,6 +1,6 @@
 import { Context } from 'koa';
 import fs from 'fs';
-import screenShotService from '../../core/screen';
+import screenShotService from '../../service/screen';
 
 export interface ScreenShot {
   url: string;
